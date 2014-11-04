@@ -11,7 +11,7 @@ struct floatstruct
  #define max 255
 {
   if (f.sign)
-  f.sing = -1;
+  f.sign = -1;
   else
   f.sign = 1;
   if (f.exponenta == 0 && f.mantissa == 0)
