@@ -21,8 +21,8 @@
 int main ()
 {
 int a = 0, n = 0;
-scanf ("%d", a);
-scanf ("%d", n);
+scanf ("%d", &a);
+scanf ("%d", &n);
 printf ("%d\n", stepen (a,n));
 return 0;
 }
