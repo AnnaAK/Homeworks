@@ -1,3 +1,4 @@
+// Kudryashova Anna
 //вывести  знак, экспоненту и мантиссу
 //через указатель
 #include <stdio.h>
@@ -35,7 +36,7 @@ void value (int b)
   f.sign = sign;
   f.mantissa = mantissa;
   f.exponenta = exponenta;
-  print(f);
+  print("%d%d&d", f.sign, f.exponenta, f.mantissa);
 }
 int main ()
 {
