@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-  float stepen (float a,int n)
+  int stepen (int a,int n)
   {
     int count = 1;
     while (n)
