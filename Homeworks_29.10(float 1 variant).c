@@ -19,7 +19,7 @@ struct floatstruct
     printf ("0\n");
   else
   if (f.exponenta == max && f.mantissa == 0)
-  if (f.sign>0)
+  if (f.sign > 0)
     printf ("sign = +");
   else
     printf ("sign = -");
@@ -36,7 +36,7 @@ void value (int b)
   f.sign = sign;
   f.mantissa = mantissa;
   f.exponenta = exponenta;
-  print("%d%d&d", f.sign, f.exponenta, f.mantissa);
+  print("%d%d%d", f.sign, f.exponenta, f.mantissa);
 }
 int main ()
 {
