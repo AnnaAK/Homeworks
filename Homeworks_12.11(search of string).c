@@ -12,15 +12,15 @@ int main()
 	scanf("%s", &s2);
 	for (i = 0; i <= a - b; ++i)
 	{
-		k = 1;
-		for (j = 0; j < b; ++j)
+	  k = 1;
+	  for (j = 0; j < b; ++j)
+	   {
+	      if (s1[i + j] != s2[j])
 		{
-			if (s1[i + j] != s2[j])
-			{
-				k = 0;
-				break;
-			}
+		  k = 0;
+		  break;
 		}
+	   }
 		if (k)
             z = z + 1;
 	}
