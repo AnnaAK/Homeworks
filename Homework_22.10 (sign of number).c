@@ -1,3 +1,4 @@
+// Kudryashova Anna
 // вывести знак числа через битовые операции
 
 #include <stdio.h>
