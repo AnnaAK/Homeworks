@@ -18,24 +18,24 @@ struct floatstruct
     printf ("0\n");
   else
   if (f.exponenta == max && f.mantissa == 0)
-  if (f.sign>0)
-    printf ("sign = +");
+  if (f.sign > 0)
+    printf ("+ infinity");
   else
-    printf ("sign = -");
+    printf ("- infinity");
   else if (f.exponenta == max && f.mantissa !=0)
     printf ("NaN");
-  else 
+  else
     printf("%d * 2^%d * %f\n", f.sign, f.exponenta - 127, 1+((float)f.mantissa)/(1 << 23));
 }
 void value (int b)
 {
-  int sign = (b >> 31); 
+  int sign = (b >> 31) & 1;
   int exponenta = (b >> 23) & ((1 << 8) - 1);
   int mantissa = b & ((1 << 23) - 1);
   f.sign = sign;
   f.mantissa = mantissa;
   f.exponenta = exponenta;
-  print(f);
+
 }
 int main (void)
   {
@@ -47,5 +47,6 @@ int main (void)
 
 	scanf("%f", &floatN.intval);
 	value(floatN.intval);
+	return 0;
 
 }
