@@ -30,13 +30,13 @@ struct floatstruct
 }
 void value (int b)
 {
-  int sign = (b >> 31); 
+  int sign = (b >> 31) & 1; 
   int exponenta = (b >> 23) & ((1 << 8) - 1);
   int mantissa = b & ((1 << 23) - 1);
   f.sign = sign;
   f.mantissa = mantissa;
   f.exponenta = exponenta;
-  print("%d%d%d", f.sign, f.exponenta, f.mantissa);
+  printf("%d%d%d", f.sign, f.exponenta, f.mantissa);
 }
 int main ()
 {
