@@ -2,36 +2,13 @@
 // Kudryashova Anna
 
 #include <stdio.h>
-#include <stdlib.h>
 int f2()
  {
-    char *str = "COMPLITE";
     char data[2];
-    strcpy(data, str);
-
-
- }
-int f1()
- {
-    printf(" COMPLITE\n");
-    exit (0);
-
- }
-int main(void)
-{
-   printf ("%d %d %d\n", &f2, &f1, &main);
-   f2();
-   return 0;
-}
-#include <stdio.h>
-#include <stdlib.h>
-int f2()
- {
-    char *str = "COMPLITE";
-    char data[2];
-    scanf("%s", data);
-
-
+    printf ("\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n"); // stack до ввода данных
+    scanf ("%s", data);
+    printf ("\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n\t%p\n"); // stack после ввода данных
+    return;
  }
 int f1()
  {
@@ -41,7 +18,8 @@ int f1()
  }
 int main()
 {
-   printf ("%d %d %d\n", &f2, &f1, &main);
+   printf ("f2:\t%p\nf1:\t%p\nmain:\t%p\n", &f2, &f1, &main);
+   printf("\n");
    f2();
    return 0;
 }
