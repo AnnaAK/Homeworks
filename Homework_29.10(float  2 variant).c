@@ -1,5 +1,5 @@
-// вывести знак, экспоенту и мантиссу
-// с union
+/* Kudryashova Anna  
+вывести знак, экспоенту и мантиссу с union */
 #include <stdio.h>
 struct floatstruct
 {
