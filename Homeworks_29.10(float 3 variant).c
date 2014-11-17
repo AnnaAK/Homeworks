@@ -20,9 +20,9 @@ struct floatstruct
   else
   if (f.exponenta == max && f.mantissa == 0)
   if (f.sign>0)
-    printf ("sign = +");
+    printf ("+ infinity");
   else
-    printf ("sign = -");
+    printf ("- infinity");
   else if (f.exponenta == max && f.mantissa !=0)
     printf ("NaN");
   else 
