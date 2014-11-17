@@ -1,5 +1,5 @@
-//  вывести знак. экспоненту и мантиссу
-// структура с битовыми полями
+/* Kudryashova Anna
+print sign, exponent and mantissa using bitfields */
 
 #include <stdio.h>
 struct floatstruct
@@ -47,7 +47,7 @@ main(void)
 	f.sign = floatN.bitfield.s;
 	f.exponenta = floatN.bitfield.e;
 	f.mantissa = floatN.bitfield.m;
-	print(f);
+	presentation (f);
 }
 return 0;
 }
