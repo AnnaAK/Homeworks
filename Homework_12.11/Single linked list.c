@@ -7,80 +7,95 @@ q - exit
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
- typedef struct node
+ typedef   struct node_t
     {
         int val;
         struct node *next;
     } node;
 
-node *head = NULL;
-node *temp = NULL;
-  
-
-void addition ( struct node_t *el, struct node_t **start)
+void additionElement (int el, node* oldHead)
 {
-  node *temp = (node*)malloc(sizeof (node));
-  if (temp != NULL) 
+  node* NewEl = (node*)malloc(sizeof (node));
+  if (NewEl != NULL)
   {
-    p = *start;
-    if (!*start)  *start = el;
-    else 
-    {
-      el->next = p; 
-      *start = el;
-    }
+   NewEl -> val = el;
+   NewEl -> next = oldHead;
+   return NewEl;
   }
 }
 
-void delete(
-     struct node_t *p, /* предыдущий элемент */
-     struct node_t *el, /* удаляемый элемент */
-     struct node_t **start, /* начало списка */
-     struct node_t **end) /* конец списка */
+void deleteElement(int el, node* headDel)
 {
-  if(p) p->next = el->next;
-  else *start = el->next;
-
-  if(el==*end && p) *end = p;
+  node  *prevDel, *nextDel, *NewHead;
+  while (nextDel != NULL)
+  if (headDel -> val == el)
+  {
+    NewHead = headDel -> next;
+    free (headDel);
+    return NewHead;
+  }
+  else
+  {
+    prevDel = headDel;
+    nextDel = headDel -> next;
+    if (nextDel -> val == el)
+     prevDel -> next =  nextDel -> next;
+     free (nextDel);
+     return headDel;
+   }
 }
 
+void printList (node* headPrint)
+{
+node *nextPrint;
+nextPrint = headPrint;
+while ( nextPrint != NULL )
+printf ("%d ", nextPrint -> val);
+nextPrint = nextPrint -> next;
+}
 
- void main()
+void main()
  {
     int element;
-    char comand;
-    char MasEnter[10];
-    gets(enter);
-    if (enter < 10)
-    
-    
-  
-    switch (comand)
+    char comand = NULL;
+    node *head = NULL;
+    printf (" \t a - add new element\n \t r - delete element\n \t p - show all list\n \t q - exit\n ");
+    while (comand != 'q')
     {
-      case 'a': 
-      scanf ("%d", &element);
-      f.val = element;
-      addition();
-      break;
-       
-      case 'r':
-      scanf ("%d", &element);
-      delete();
-      break;
-      case 'p':
-      case 'q':
-      exit (0);
-      return 0;
+       comand = getchar();
+       switch (comand)
+       {
+         case 'a':
+           element = 0;
+           comand = getchar();
+           while (comand != ' ')
+           {
+           comand = getchar();
+           element = (int) comand - 48;
+           comand = getchar();
+           }
+           head = additionElement (element, head);
+           break;
+         case 'r':
+          element = 0;
+           comand = getchar();
+           while (comand != ' ')
+           {
+             comand = getchar();
+             element = (int) comand - 48;
+             comand = getchar();
+           }
+           head = deleteElement (element, head);
+           break;
+         case 'p':
+          printList(head);
+          comand = getchar;
+          break;
+         case 'q':
+         exit (0);
     }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+    return 0;
+    }
  }
