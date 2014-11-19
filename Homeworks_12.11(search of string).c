@@ -20,9 +20,8 @@ int main()
 		  k = 0;
 		  break;
 		}
-	   }
-		if (k)
-            z = z + 1;
+           }
+         if (j == b) if (k) z = z + 1;
 	}
 	printf("%d", z);
 	return 0;
