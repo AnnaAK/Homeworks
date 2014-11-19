@@ -12,10 +12,10 @@ q - exit
  typedef   struct node_t
     {
         int val;
-        struct node *next;
+        int *next;
     } node;
 
-void additionElement (int el, node* oldHead)
+node* additionElement (int el, node* oldHead)
 {
   node* NewEl = (node*)malloc(sizeof (node));
   if (NewEl != NULL)
@@ -26,7 +26,7 @@ void additionElement (int el, node* oldHead)
   }
 }
 
-void deleteElement(int el, node* headDel)
+node* deleteElement(int el, node* headDel)
 {
   node  *prevDel, *nextDel, *NewHead;
   while (nextDel != NULL)
@@ -52,8 +52,10 @@ void printList (node* headPrint)
 node *nextPrint;
 nextPrint = headPrint;
 while ( nextPrint != NULL )
+{
 printf ("%d ", nextPrint -> val);
 nextPrint = nextPrint -> next;
+}
 }
 
 void main()
@@ -72,18 +74,16 @@ void main()
            comand = getchar();
            while (comand != ' ')
            {
-           comand = getchar();
-           element = (int) comand - 48;
-           comand = getchar();
+             element = (int) comand - 48;
+             comand = getchar();
            }
            head = additionElement (element, head);
            break;
          case 'r':
           element = 0;
-           comand = getchar();
-           while (comand != ' ')
+          comand = getchar();
+          while (comand != ' ')
            {
-             comand = getchar();
              element = (int) comand - 48;
              comand = getchar();
            }
@@ -93,9 +93,7 @@ void main()
           printList(head);
           comand = getchar;
           break;
-         case 'q':
-         exit (0);
+     }
     }
-    return 0;
-    }
+     return 0;
  }
