@@ -17,7 +17,7 @@ struct floatstruct
     printf ("0\n");
   else
   if (f.exponenta == max && f.mantissa == 0)
-  if (f.sign>0)
+  if (f.sign > 0)
     printf ("+ infinity");
   else
     printf ("- infinity");
