@@ -10,11 +10,9 @@ struct floatstruct
 
  void presentation (floatstruct)
 {
-#define max 255
-  if (f.sign)
-    f.sign = -1;
-  else
-    f.sign = 1;
+  #define max 255
+  if (f.sign) f.sign = -1;
+  else f.sign = 1;
   if (f.exponenta == 0 && f.mantissa == 0)
     printf ("0\n");
   else if (f.exponenta == max && f.mantissa == 0)
@@ -22,7 +20,7 @@ struct floatstruct
     if (f.sign > 0) printf ("+ infinity");
     else printf ("- infinity");
   }
-  else if (f.exponenta == max && f.mantissa !=0)
+  else if (f.exponenta == max && f.mantissa != 0)
     printf ("NaN");
   else
     printf("%d * 2^%d * %f\n", f.sign, f.exponenta - 127, 1+((float)f.mantissa)/(1 << 23));
@@ -41,7 +39,7 @@ int main ()
 {
   float n;
   scanf ("%f", &n);
-  value (* (int *) (& n));
+  value (* (int *) (&n));
   return 0;
 }
 
