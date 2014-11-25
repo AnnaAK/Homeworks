@@ -57,9 +57,12 @@ void printList (node* headPrint)
   nextPrint = headPrint;
   while ( nextPrint != NULL )
   {
-    printf ("%d ", nextPrint -> val);
+    if ( nextPrint -> next != NULL)
+    printf ("%d, ", nextPrint -> val);
+    else printf ("%d", nextPrint -> val);
     nextPrint = nextPrint -> next;
   }
+  printf("\n");
 }
 
 void main()
