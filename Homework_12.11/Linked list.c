@@ -9,15 +9,15 @@ q - exit
 #include <stdio.h>
 #include <stdlib.h>
 
- typedef   struct node_t
+ typedef struct node
     {
         int val;
-        int *next;
+        struct node *next;
     } node;
 
 node* additionElement (int el, node* oldHead)
 {
-  node* NewEl = (node*)malloc(sizeof (node));
+  node *NewEl = (node*)malloc(sizeof (node));
   if (NewEl != NULL)
   {
    NewEl -> val = el;
@@ -30,10 +30,11 @@ node* deleteElement(int el, node* headDel)
 {
   node  *prevDel, *nextDel, *NewHead;
   while (nextDel != NULL)
+  {
   if (headDel -> val == el)
   {
     NewHead = headDel -> next;
-    free (headDel);
+    free(headDel);
     return NewHead;
   }
   else
@@ -41,21 +42,24 @@ node* deleteElement(int el, node* headDel)
     prevDel = headDel;
     nextDel = headDel -> next;
     if (nextDel -> val == el)
-     prevDel -> next =  nextDel -> next;
-     free (nextDel);
-     return headDel;
+    {
+       prevDel -> next =  nextDel -> next;
+       free(nextDel);
+    }
+    return headDel;
    }
+ }
 }
 
 void printList (node* headPrint)
 {
-node *nextPrint;
-nextPrint = headPrint;
-while ( nextPrint != NULL )
-{
-printf ("%d ", nextPrint -> val);
-nextPrint = nextPrint -> next;
-}
+  node *nextPrint;
+  nextPrint = headPrint;
+  while ( nextPrint != NULL )
+  {
+    printf ("%d ", nextPrint -> val);
+    nextPrint = nextPrint -> next;
+  }
 }
 
 void main()
@@ -72,9 +76,10 @@ void main()
          case 'a':
            element = 0;
            comand = getchar();
+           comand = getchar();
            while (comand != ' ')
            {
-             element = (int) comand - 48;
+             element = 10 * element + (int) comand - '0';
              comand = getchar();
            }
            head = additionElement (element, head);
@@ -82,16 +87,17 @@ void main()
          case 'r':
           element = 0;
           comand = getchar();
+          comand = getchar();
           while (comand != ' ')
            {
-             element = (int) comand - 48;
+             element = 10 * element + (int) comand - '0';
              comand = getchar();
            }
            head = deleteElement (element, head);
            break;
          case 'p':
           printList(head);
-          comand = getchar;
+          comand = getchar();
           break;
      }
     }
