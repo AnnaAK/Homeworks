@@ -8,11 +8,12 @@ q - exit
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "Linked list.h"
 
- typedef struct node
+ typedef struct IntNode
 {
      int val;
-     struct node *next;
+     struct IntNode *next;
 } node;
 
 node* additionElement (node* oldHead, int el)
