@@ -7,10 +7,10 @@ functions for linked list
 #define LINKED_LIST
 
 // struct of node in list
- typedef struct node
+ typedef struct IntNode
     {
         int val; // value of node
-        struct node *next; // pointer to the next element
+        struct IntNode *next; // pointer to the next element
     } node;
 
 // adding a new element to the top of the list
