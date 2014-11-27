@@ -10,44 +10,46 @@ q - exit
 #include <stdlib.h>
 
  typedef struct node
-    {
-        int val;
-        struct node *next;
-    } node;
+{
+     int val;
+     struct node *next;
+} node;
 
-node* additionElement (int el, node* oldHead)
+node* additionElement (node* oldHead, int el)
 {
   node *NewEl = (node*)malloc(sizeof (node));
   if (NewEl != NULL)
   {
-   NewEl -> val = el;
-   NewEl -> next = oldHead;
-   return NewEl;
+     NewEl->val = el;
+     NewEl->next = oldHead;
+     return NewEl;
   }
+  else printf("Not enough memory\n");
 }
 
-node* deleteElement(int el, node* headDel)
+node* deleteElement(node* headDel, int el)
 {
   node  *prevDel, *nextDel, *NewHead;
   while (nextDel != NULL)
   {
-  if (headDel -> val == el)
+     if (headDel->val == el)
   {
-    NewHead = headDel -> next;
-    free(headDel);
-    return NewHead;
+     NewHead = headDel->next;
+     free(headDel);
+     return NewHead;
   }
-  else
+  else if (headDel->val != el)
   {
-    prevDel = headDel;
-    nextDel = headDel -> next;
-    if (nextDel -> val == el)
-    {
-       prevDel -> next =  nextDel -> next;
-       free(nextDel);
-    }
-    return headDel;
+     prevDel = headDel;
+     nextDel = headDel->next;
+     if (nextDel->val == el)
+     {
+        prevDel->next =  nextDel -> next;
+        free(nextDel);
+     }
+     return headDel;
    }
+  else printf("Such element don't exist\n");
  }
 }
 
@@ -57,10 +59,10 @@ void printList (node* headPrint)
   nextPrint = headPrint;
   while ( nextPrint != NULL )
   {
-    if ( nextPrint -> next != NULL)
-    printf ("%d, ", nextPrint -> val);
-    else printf ("%d", nextPrint -> val);
-    nextPrint = nextPrint -> next;
+    if ( nextPrint->next != NULL)
+    printf ("%d, ", nextPrint->val);
+    else printf ("%d", nextPrint->val);
+    nextPrint = nextPrint->next;
   }
   printf("\n");
 }
@@ -70,38 +72,26 @@ void main()
     int element;
     char comand = NULL;
     node *head = NULL;
+
     printf (" \t a - add new element\n \t r - delete element\n \t p - show all list\n \t q - exit\n ");
     while (comand != 'q')
     {
-       comand = getchar();
+       scanf("%c", &comand);
        switch (comand)
        {
          case 'a':
-           element = 0;
-           comand = getchar();
-           comand = getchar();
-           while (comand != ' ')
-           {
-             element = 10 * element + (int) comand - '0';
-             comand = getchar();
-           }
-           head = additionElement (element, head);
+           scanf("%d", &element);
+           head = additionElement (head, element);
            break;
          case 'r':
-          element = 0;
-          comand = getchar();
-          comand = getchar();
-          while (comand != ' ')
-           {
-             element = 10 * element + (int) comand - '0';
-             comand = getchar();
-           }
-           head = deleteElement (element, head);
+           scanf("%d", &element);
+           head = deleteElement (head, element);
            break;
          case 'p':
           printList(head);
           comand = getchar();
           break;
+
      }
     }
      return 0;
