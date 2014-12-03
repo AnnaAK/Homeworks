@@ -1,10 +1,3 @@
-// Kudryashova Anna
-/* list
-a - add element
-r - delete element
-p - show all list
-q - exit
-*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -90,7 +83,6 @@ void main()
            break;
          case 'p':
           printList(head);
-          comand = getchar();
           break;
 
      }
