@@ -1,13 +1,11 @@
 
 #include <stdio.h>
+#define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
+#include <crtdbg.h>
 #include "Linked list.h"
 
- typedef struct IntNode
-{
-     int val;
-     struct IntNode *next;
-} node;
+ 
 
 node* additionElement (node* oldHead, int el)
 {
@@ -21,9 +19,12 @@ node* additionElement (node* oldHead, int el)
   else printf("Not enough memory\n");
 }
 
+
+
 node* deleteElement(node* headDel, int el)
 {
-  node  *prevDel, *nextDel, *NewHead;
+  node *prevDel, *NewHead;
+  node *nextDel = headDel;
   while (nextDel != NULL)
   {
      if (headDel->val == el)
@@ -63,6 +64,7 @@ void printList (node* headPrint)
 
 void main()
  {
+	
     int element;
     char comand = NULL;
     node *head = NULL;
@@ -75,7 +77,7 @@ void main()
        {
          case 'a':
            scanf("%d", &element);
-           head = additionElement (head, element);
+           head = additionElement(head, element);
            break;
          case 'r':
            scanf("%d", &element);
@@ -88,4 +90,5 @@ void main()
      }
     }
      return 0;
+	
  }
